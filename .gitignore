@@ -1,14 +1,34 @@
-logs/
-npm-debug.log
-yarn-error.log
-node_modules/
-package-lock.json
-yarn.lock
-coverage/
-.idea/
-run/
+# local
+.vscode
+.idea
+
+# log
+*.log
+*.log.*
+
+# dependencies
+node_modules
+
+linaria-temp-map.json
+# dist
+lib
+dist
+typings
+tsconfig.tsbuildinfo
+target
+packages/vcenter-provider/build/*
+
+# test
+coverage
+
+*.rej
+
+*.code-workspace
+
+packages/server/reports/*
+packages/server/tickets/*
+
 .DS_Store
-*.sw*
-*.un~
-typings/
-.nyc_output/
+
+.vercel
+.turbo
