@@ -1,0 +1,13 @@
+{
+  "name": "Prisma2-Explore",
+  "restartable": "r",
+  "delay": "500",
+  "ignore": [".git", "node_modules/**", "/prisma/*"],
+  "verbose": true,
+  "execMap": {
+    "": "node",
+    "js": "node --harmony",
+    "ts": "ts-node "
+  },
+  "watch": ["./**/*.ts"]
+}
