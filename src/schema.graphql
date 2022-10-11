@@ -8,3 +8,6 @@ type Animal {
   fact: String
 }
 
+type Mutation{
+  addAnimal(name:String!,fact:String):Animal
+}

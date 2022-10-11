@@ -10,6 +10,14 @@ const resolvers = {
       return context.prisma.animal.findMany();
     },
   },
+  Mutation: {
+    addAnimal: async (parent, args, context) => {
+      const animal = await context.prisma.animal.create({
+        data: { ...args },
+      });
+      return animal;
+    },
+  },
 };
 
 const server = new ApolloServer({
