@@ -1,0 +1,21 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Int、String等这一类标量会被自动基于数据库类型映射到对应的数据类型。标量类型后的?意味着这一字段是可选的。
+// @id 意为标识此字段为主键，@default()意为默认值，autoincrement与now为prisma内置的函数，分别代表自增主键与字段写入时的时间戳，类似的内置函数还有uuid、cuid等。
+
+// 创建数据模型
+model Animal {
+  id      String    @id @unique @default(uuid()) @db.Uuid
+  name    String    @unique
+  fact    String
+}

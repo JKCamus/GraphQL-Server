@@ -1,26 +1,23 @@
 const { ApolloServer } = require('apollo-server');
 const { readFileSync } = require('fs');
 const path = require('path');
-
-const animals = [
-  {
-    name: 'Lion',
-    fact: 'During the Neolithic period, lions ranged throughout Africa, Southeast Europe, and Western and South Asia.',
-  },
-  {
-    name: 'Goose',
-  },
-];
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 const resolvers = {
   Query: {
-    getAllAnimals: () => animals,
+    getAllAnimals: async (parent, args, context) => {
+      return context.prisma.animal.findMany();
+    },
   },
 };
 
 const server = new ApolloServer({
   typeDefs: readFileSync(path.join(__dirname, 'schema.graphql'), 'utf8'),
   resolvers,
+  context: {
+    prisma,
+  },
 });
 
 server.listen().then(({ url }) => console.log(`Server is running on ${url}`));
