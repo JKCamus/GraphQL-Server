@@ -2,8 +2,31 @@
   "name": "Prisma2-Explore",
   "restartable": "r",
   "delay": "500",
-  "ignore": [".git", "node_modules/**", "/prisma/*"],
+  "ignore": [".git", "node_modules/**", "/prisma/*", "/generated"],
   "verbose": true,
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": "."
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
   "execMap": {
     "": "node",
     "js": "node --harmony",
